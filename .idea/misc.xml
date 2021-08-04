@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Cassio/Documents/GitHub/Teste-Solutis/app/src/main/res/layout/activity_login.xml" value="0.378125" />
+        <entry key="..\:/Users/Cassio/Documents/GitHub/Teste-Solutis/app/src/main/res/layout/activity_startment.xml" value="0.378125" />
+        <entry key="..\:/Users/Cassio/Documents/GitHub/app/src/main/res/drawable-v24/bills_bg.xml" value="0.39427083333333335" />
+        <entry key="..\:/Users/Cassio/Documents/GitHub/app/src/main/res/drawable-v24/button_bg.xml" value="0.2828125" />
+        <entry key="..\:/Users/Cassio/Documents/GitHub/app/src/main/res/drawable-v24/button_border.xml" value="0.2828125" />
+        <entry key="..\:/Users/Cassio/Documents/GitHub/app/src/main/res/drawable-v24/field_bg.xml" value="0.2828125" />
+        <entry key="..\:/Users/Cassio/Documents/GitHub/app/src/main/res/drawable-v24/statment_background.xml" value="0.39427083333333335" />
+        <entry key="..\:/Users/Cassio/Documents/GitHub/app/src/main/res/layout/activity_login.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/Cassio/Documents/GitHub/app/src/main/res/layout/activity_login2.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/Cassio/Documents/GitHub/app/src/main/res/layout/activity_startment.xml" value="0.33" />
+        <entry key="..\:/Users/Cassio/Documents/GitHub/app/src/main/res/layout/card_bills.xml" value="0.378125" />
+        <entry key="..\:/Users/Cassio/Documents/GitHub/app/src/main/res/layout/header_list_card.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

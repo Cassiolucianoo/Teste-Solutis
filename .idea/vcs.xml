@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Paginas" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Python-Intro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SimpleApps" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Website-Online-lessons" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app-bank" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/eicon-cadastro-usuarios" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/estudos-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/iniciando_python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/javascript-fetch" vcs="Git" />
+  </component>
+</project>

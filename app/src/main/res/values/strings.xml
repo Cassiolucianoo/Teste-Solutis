@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Teste_Solutios</string>
+    <string name="text_ex">Cassio luciano da s</string>
+    <string name="cpf_ex">366.365.552.05</string>
+    <string name="saldo_text">Saldo</string>
+    <string name="saldo_ex">R$ 1.999,00</string>
+</resources>
