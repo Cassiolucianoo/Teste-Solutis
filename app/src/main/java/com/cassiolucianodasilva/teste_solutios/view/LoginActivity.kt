@@ -1,7 +1,8 @@
-package com.cassiolucianodasilva.teste_solutios
+package com.cassiolucianodasilva.teste_solutios.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.cassiolucianodasilva.teste_solutios.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

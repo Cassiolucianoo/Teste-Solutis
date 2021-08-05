@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Teste_Solutios">
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".StartmentActivity"
+            android:name=".view.StartmentActivity"
             android:exported="true" />
     </application>
 
