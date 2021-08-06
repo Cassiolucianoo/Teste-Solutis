@@ -6,12 +6,12 @@ import java.util.*
 class StatmentModel {
 
     @SerializedName("descricao")
-    private var description: String? = null
+      var description: String = ""
 
     @SerializedName("date")
-    private lateinit var  date: Date
+    lateinit var  date: Date
 
-    @SerializedName("value")
-    private var value: Float? = 0.0F
+    @SerializedName("valor")
+    var value: Float = 0.0F
 
     }
