@@ -1,5 +1,4 @@
 package com.cassiolucianodasilva.teste_solutios.view
-
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +16,7 @@ import com.cassiolucianodasilva.teste_solutios.R
 import com.cassiolucianodasilva.teste_solutios.viewModel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity(), View.OnClickListener  {
+class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var mViewModel: LoginViewModel
 
@@ -29,21 +28,22 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener  {
 
         mViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         editPassword.transformationMethod = PasswordTransformationMethod.getInstance()
-
+        progress.visibility = View.GONE
         buttonLogin.setOnClickListener(this)
 
         /*
   * Colocando configuração de validação de campo de email
   * para enquanto o usuário informa o conteúdo deste campo.
   * */
-        editUser.addTextChangedListener( object: TextWatcher{
-            override fun afterTextChanged( content: Editable ) {
+        editUser.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(content: Editable) {
 
                 val message = getString(R.string.invalid_user)
 
                 editUser.error =
-                    if( content.isNotEmpty()
-                        && Patterns.EMAIL_ADDRESS.matcher(content).matches() )
+                    if (content.isNotEmpty()
+                        && Patterns.EMAIL_ADDRESS.matcher(content).matches()
+                    )
                         null
                     else
                         message
@@ -53,27 +53,31 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener  {
                 content: CharSequence?,
                 start: Int,
                 count: Int,
-                after: Int ) {}
+                after: Int
+            ) {
+            }
 
             override fun onTextChanged(
                 content: CharSequence?,
                 start: Int,
                 before: Int,
-                count: Int) {}
-        } )
+                count: Int
+            ) {
+            }
+        })
 
 
         /*
     * Colocando configuração de validação de campo de senha
     * para enquanto o usuário informa o conteúdo deste campo.
     * */
-        editPassword.addTextChangedListener( object: TextWatcher {
-            override fun afterTextChanged( content: Editable) {
+        editPassword.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(content: Editable) {
 
                 val message = getString(R.string.invalid_password)
 
                 editPassword.error =
-                    if( content.length > 5 )
+                    if (content.length > 5)
                         null
                     else
                         message
@@ -83,17 +87,18 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener  {
                 content: CharSequence?,
                 start: Int,
                 count: Int,
-                after: Int ) {}
+                after: Int
+            ) {
+            }
 
             override fun onTextChanged(
                 content: CharSequence?,
                 start: Int,
                 before: Int,
-                count: Int) {}
-        } )
-
-
-
+                count: Int
+            ) {
+            }
+        })
 
 
         cacheLogin()
@@ -110,31 +115,33 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener  {
      * TODO
      *Observa ViewModel
      */
-    private fun observe(){
+    private fun observe() {
 
         mViewModel.login.observe(this, Observer {
             if (it.success()) {
                 startActivity(Intent(this, StartmentActivity::class.java))
                 finish()
+                progress.visibility = View.VISIBLE
             } else {
 
                 editUser.setTextColor(Color.parseColor("#AAC30000"))
                 Toast.makeText(applicationContext, it.failure(), Toast.LENGTH_SHORT).show()
+                progress.visibility = View.GONE
             }
         })
 
         mViewModel.lastLogin.observe(this, Observer {
-            if (it != ""){
+            if (it != "") {
                 editUser.setText(it)
             }
         })
     }
 
-
-
     override fun onClick(v: View) {
-        if (v.id == R.id.buttonLogin){
+        if (v.id == R.id.buttonLogin) {
             handleLogin()
+            progress.visibility = View.VISIBLE
+
         }
     }
 
@@ -146,6 +153,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener  {
         val password = editPassword.text.toString()
 
         mViewModel.doLogin(user, password)
+
+        progress.visibility = View.GONE
+
     }
 }
 

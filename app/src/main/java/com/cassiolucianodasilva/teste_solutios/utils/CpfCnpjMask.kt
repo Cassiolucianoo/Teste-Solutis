@@ -6,8 +6,8 @@ class CpfCnpjMask {
         var maskCpf = ""
         var mask = ""
 
-        if(cpf.count() == 11) mask = "###.###.###-##"
-        else if(cpf.count() == 14) mask = "##.###.###/####-##"
+        if (cpf.count() == 11) mask = "###.###.###-##"
+        else if (cpf.count() == 14) mask = "##.###.###/####-##"
 
         var i = 0
         for (m in mask.toCharArray()) {
@@ -24,8 +24,6 @@ class CpfCnpjMask {
         }
         return maskCpf
     }
-
-
 
 
 }

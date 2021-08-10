@@ -7,16 +7,15 @@ class StatmentModel {
 
 
     @SerializedName("descricao")
-      var description: String = ""
+    var description: String = ""
 
     @SerializedName("data")
-    lateinit var  date: Date
+    lateinit var date: Date
 
     @SerializedName("valor")
     var value: Float = 0.0F
 
 
-
-    }
+}
 
 

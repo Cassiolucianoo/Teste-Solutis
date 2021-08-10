@@ -16,12 +16,11 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-
-class PersonRepository (val context: Context) : BaseRepository(context) {
+class PersonRepository(val context: Context) : BaseRepository(context) {
 
     private val mRemote = RetrofitClient.createService(StatmentService::class.java)
 
-    fun login(username: String, password: String, param: APIListener<LoginModel>){
+    fun login(username: String, password: String, param: APIListener<LoginModel>) {
 
 
         // Verificação de internet
@@ -34,9 +33,10 @@ class PersonRepository (val context: Context) : BaseRepository(context) {
         login["username"] = username
         login["password"] = password
         val call: Call<LoginModel> = mRemote.login(login)
-         //chamada Assincrona
+        //chamada Assincrona
         call.enqueue(object : Callback<LoginModel> {
-            override fun onResponse(call: Call<LoginModel>, response: Response<LoginModel>
+            override fun onResponse(
+                call: Call<LoginModel>, response: Response<LoginModel>
             ) {
                 if (response.code() != StatmentsConstants.HTTP.SUCCESS) {
                     val response = JSONObject(response.errorBody()!!.string()).get("message")
@@ -47,22 +47,24 @@ class PersonRepository (val context: Context) : BaseRepository(context) {
             }
 
             override fun onFailure(call: Call<LoginModel>, t: Throwable) {
-                Toast.makeText(context, context.getString(R.string.errologin), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.errologin), Toast.LENGTH_SHORT)
+                    .show()
             }
 
         })
 
     }
 
-
-    fun statment(token:String, param: APIListener<List<StatmentModel>>){
+    fun statment(token: String, param: APIListener<List<StatmentModel>>) {
         val call: Call<List<StatmentModel>> = mRemote.statment(token)
 
-        call.enqueue(object : Callback<List<StatmentModel>>{
-            override fun onResponse(call: Call<List<StatmentModel>>, response: Response<List<StatmentModel>>
+        call.enqueue(object : Callback<List<StatmentModel>> {
+            override fun onResponse(
+                call: Call<List<StatmentModel>>, response: Response<List<StatmentModel>>
             ) {
                 if (response.code() != StatmentsConstants.HTTP.SUCCESS) {
-                    val validation = Gson().fromJson(response.errorBody()!!.string(), String::class.java)
+                    val validation =
+                        Gson().fromJson(response.errorBody()!!.string(), String::class.java)
                     Toast.makeText(context, "Falha ao listar extrato", Toast.LENGTH_SHORT).show()
                 } else {
                     response.body()?.let { param.onSuccess(it) }

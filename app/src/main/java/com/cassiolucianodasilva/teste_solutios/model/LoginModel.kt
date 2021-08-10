@@ -14,6 +14,6 @@ class LoginModel {
     var balance: Float = 0.0F
 
     @SerializedName("token")
-   var token: String = ""
+    var token: String = ""
 
 }

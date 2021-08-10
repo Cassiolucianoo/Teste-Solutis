@@ -11,12 +11,13 @@ import com.cassiolucianodasilva.teste_solutios.model.StatmentModel
 import kotlinx.android.synthetic.main.card_bills.view.*
 import java.text.SimpleDateFormat
 
-class StatmentAdapter(): RecyclerView.Adapter<StatmentAdapter.StatmentHolder>() {
+class StatmentAdapter() : RecyclerView.Adapter<StatmentAdapter.StatmentHolder>() {
 
     private var mStatment: List<StatmentModel> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StatmentHolder {
-        val statmentView = LayoutInflater.from(parent.context).inflate(R.layout.card_bills, parent, false)
+        val statmentView =
+            LayoutInflater.from(parent.context).inflate(R.layout.card_bills, parent, false)
 
         return StatmentHolder(statmentView)
     }
@@ -29,7 +30,7 @@ class StatmentAdapter(): RecyclerView.Adapter<StatmentAdapter.StatmentHolder>() 
         return mStatment.count()
     }
 
-    fun updateStatment(list: List<StatmentModel>){
+    fun updateStatment(list: List<StatmentModel>) {
         mStatment = list
         notifyDataSetChanged()
     }
@@ -54,23 +55,24 @@ class StatmentAdapter(): RecyclerView.Adapter<StatmentAdapter.StatmentHolder>() 
          * @return
          */
         private fun formatValue(value: Float): String {
-            return if (value > 0 ) {
-                "R$ $value".replace(",",".")
 
-            }else {
+            return if (value > 0) {
+                "R$ $value".replace(".", ",")
 
+
+            } else {
+
+                itemView.title_pagamento.text = "Pagamento"
                 itemView.card_value.setTextColor(Color.parseColor("#F60404"))
                 val strValue = value.toString()
-                strValue[0] + "R$ " + strValue.substring(1, strValue.lastIndex+1).replace(",",".")
+                strValue[0] + "R$ " + strValue.substring(1, strValue.lastIndex + 1)
+                    .replace(".", ",")
             }
 
         }
 
 
-
     }
-
-
 
 
 }

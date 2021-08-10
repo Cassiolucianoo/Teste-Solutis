@@ -1,6 +1,6 @@
 package com.cassiolucianodasilva.teste_solutios.service.listener
 
-class ValidationListener (errorMessage: String = "") {
+class ValidationListener(errorMessage: String = "") {
 
     private var mStatus: Boolean = true
     private var mValidationMessage: String = ""

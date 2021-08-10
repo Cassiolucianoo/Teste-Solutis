@@ -11,7 +11,7 @@ class StatmentsConstants private constructor() {
         const val SUCCESS = 200
     }
 
-    object USER{
+    object USER {
         const val USER_NAME = "user_name"
 
         const val USER_CPF = "user_cpf"
@@ -20,7 +20,5 @@ class StatmentsConstants private constructor() {
 
         const val USER_TOKEN = "user_token"
     }
-
-
 
 }

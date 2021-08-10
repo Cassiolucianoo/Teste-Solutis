@@ -47,7 +47,7 @@ class StartmentActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        if (v.id == R.id.logout){
+        if (v.id == R.id.logout) {
             mViewModel.logout()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
@@ -61,7 +61,7 @@ class StartmentActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun observe() {
         mViewModel.statment.observe(this, Observer {
-            if (it.count() > 0){
+            if (it.count() > 0) {
                 mAdapter.updateStatment(it)
             }
         })
