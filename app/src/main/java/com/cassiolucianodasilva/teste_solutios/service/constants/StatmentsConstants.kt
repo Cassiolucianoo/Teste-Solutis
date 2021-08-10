@@ -20,4 +20,7 @@ class StatmentsConstants private constructor() {
 
         const val USER_TOKEN = "user_token"
     }
+
+
+
 }

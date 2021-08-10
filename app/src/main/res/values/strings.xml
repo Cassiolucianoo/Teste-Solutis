@@ -1,7 +1,19 @@
 <resources>
-    <string name="app_name">Teste_Solutios</string>
+
+    <string name="ERROR_UNEXPECTED">Um erro inesperado ocorreu. Tente novamente mais tarde.</string>
+    <string name="ERROR_LOAD_TASK">Erro ao carregar a tarefa.</string>
+    <string name="ERROR_INTERNET_CONNECTION">Conexão à internet necessária para uso da applicação.</string>
+
+
+
+    <string name="app_name">Teste_Solutis</string>
     <string name="text_ex">Cassio luciano da s</string>
     <string name="cpf_ex">366.365.552.05</string>
     <string name="saldo_text">Saldo</string>
     <string name="saldo_ex">R$ 1.999,00</string>
+    <string name="erroatualizarextrato">Extrato não foi atualizado</string>
+    <string name="errointernet">\"Verifique sua internet \"</string>
+    <string name="errologin">Falha no login</string>
+    <string name="invalid_password">Senha invalida</string>
+    <string name="invalid_user">"Nome de usuário ou senha incorretos "</string>
 </resources>

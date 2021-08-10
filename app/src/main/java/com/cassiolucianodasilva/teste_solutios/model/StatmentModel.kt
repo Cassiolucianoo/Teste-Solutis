@@ -5,13 +5,18 @@ import java.util.*
 
 class StatmentModel {
 
+
     @SerializedName("descricao")
       var description: String = ""
 
-    @SerializedName("date")
+    @SerializedName("data")
     lateinit var  date: Date
 
     @SerializedName("valor")
     var value: Float = 0.0F
 
+
+
     }
+
+

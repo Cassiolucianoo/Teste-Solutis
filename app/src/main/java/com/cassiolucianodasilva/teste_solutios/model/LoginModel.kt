@@ -11,9 +11,9 @@ class LoginModel {
     var cpf: String = ""
 
     @SerializedName("saldo")
-    var balance: Float? = 0.0F
+    var balance: Float = 0.0F
 
     @SerializedName("token")
-   var token: String? = null
+   var token: String = ""
 
 }

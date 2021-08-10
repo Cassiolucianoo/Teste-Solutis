@@ -1,8 +1,10 @@
 package com.cassiolucianodasilva.teste_solutios.view.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cassiolucianodasilva.teste_solutios.R
 import com.cassiolucianodasilva.teste_solutios.model.StatmentModel
@@ -41,8 +43,30 @@ class StatmentAdapter(): RecyclerView.Adapter<StatmentAdapter.StatmentHolder>() 
 
             itemView.billDescription.text = statment.description
             itemView.billDate.text = formatter.format(statment.date)
-            itemView.billValue.text = statment.value.toString()
+            itemView.card_value.text = formatValue(statment.value)
+
         }
+
+        /**
+         * TODO
+         *
+         * @param value
+         * @return
+         */
+        private fun formatValue(value: Float): String {
+            return if (value > 0 ) {
+                "R$ $value".replace(",",".")
+
+            }else {
+
+                itemView.card_value.setTextColor(Color.parseColor("#F60404"))
+                val strValue = value.toString()
+                strValue[0] + "R$ " + strValue.substring(1, strValue.lastIndex+1).replace(",",".")
+            }
+
+        }
+
+
 
     }
 
