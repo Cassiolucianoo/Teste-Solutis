@@ -14,6 +14,6 @@
     <string name="erroatualizarextrato">Extrato não foi atualizado</string>
     <string name="errointernet">\"Verifique sua internet \"</string>
     <string name="errologin">Falha no login</string>
-    <string name="invalid_password">Senha invalida</string>
-    <string name="invalid_user">"Nome de usuário ou senha incorretos "</string>
+    <string name="invalid_password">"Senhas validas minimo 5 caracteres"</string>
+    <string name="invalid_user">"Informe usuario de acesso"</string>
 </resources>

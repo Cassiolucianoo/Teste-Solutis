@@ -12,13 +12,7 @@ class LoadingDialog(val mActivity: Activity) {
         val inflater = mActivity.layoutInflater
         val dialogView = inflater.inflate(R.layout.loading_item, null)
 
-        /**set   val  handler = Handler()
-        handler.postDelayed(object : Runnable {
-        override fun run() {
-        loading.isDismiss()
-        }
-
-        },5000) Dialog*/
+        /**set Dialog*/
         val bulider = AlertDialog.Builder(mActivity)
         bulider.setView(dialogView)
         bulider.setCancelable(false)

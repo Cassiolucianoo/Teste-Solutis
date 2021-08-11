@@ -3,6 +3,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.text.method.PasswordTransformationMethod
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.cassiolucianodasilva.teste_solutios.R
+import com.cassiolucianodasilva.teste_solutios.utils.LoadingDialog
 import com.cassiolucianodasilva.teste_solutios.viewModel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -30,6 +32,16 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         editPassword.transformationMethod = PasswordTransformationMethod.getInstance()
         progress.visibility = View.GONE
         buttonLogin.setOnClickListener(this)
+
+
+       /** val loading = LoadingDialog(this)
+        loading.startLoading()
+        val  handler = Handler()
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                loading.isDismiss()
+            }
+        },3000)*/
 
         /*
   * Colocando configuração de validação de campo de email
@@ -68,9 +80,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
 
         /*
-    * Colocando configuração de validação de campo de senha
-    * para enquanto o usuário informa o conteúdo deste campo.
-    * */
+        * Colocando configuração de validação de campo de senha
+        * para enquanto o usuário informa o conteúdo deste campo.
+        * */
         editPassword.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(content: Editable) {
 
