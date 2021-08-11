@@ -1,9 +1,13 @@
 package com.cassiolucianodasilva.teste_solutios.view
 
+import android.app.AlertDialog
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +17,10 @@ import com.cassiolucianodasilva.teste_solutios.service.constants.StatmentsConsta
 import com.cassiolucianodasilva.teste_solutios.view.adapter.StatmentAdapter
 import com.cassiolucianodasilva.teste_solutios.viewModel.StatmentViewModel
 import kotlinx.android.synthetic.main.header_list_card.*
+import android.content.DialogInterface
+
+
+
 
 class StartmentActivity : AppCompatActivity(), View.OnClickListener {
     private val mAdapter = StatmentAdapter()
@@ -49,10 +57,20 @@ class StartmentActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         if (v.id == R.id.logout) {
             mViewModel.logout()
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+
+            exit()
+
         }
     }
+
+     fun onBackPresseds() {
+        Toast.makeText(applicationContext, "Alterar botão retornar", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onBackPressed() {
+       exit()
+    }
+
 
     private fun loadStatment() {
         mViewModel.loadStatment()
@@ -65,6 +83,19 @@ class StartmentActivity : AppCompatActivity(), View.OnClickListener {
                 mAdapter.updateStatment(it)
             }
         })
+
+    }
+
+    private fun exit(){
+
+        AlertDialog.Builder(this)
+            //.setIcon(android.R.drawable.ic_dialog_alert)
+            .setTitle("Sair da Conta")
+            .setMessage("Deseja realmente sair ?")
+            .setPositiveButton("Sim",
+                DialogInterface.OnClickListener { dialog, which -> finish() })
+            .setNegativeButton("Não", null)
+            .show()
 
     }
 
