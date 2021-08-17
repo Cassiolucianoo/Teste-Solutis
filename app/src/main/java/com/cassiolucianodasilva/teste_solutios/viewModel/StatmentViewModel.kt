@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.cassiolucianodasilva.teste_solutios.R
 import com.cassiolucianodasilva.teste_solutios.model.StatmentModel
-import com.cassiolucianodasilva.teste_solutios.service.PersonRepository
+import com.cassiolucianodasilva.teste_solutios.service.repository.PersonRepository
 import com.cassiolucianodasilva.teste_solutios.service.constants.StatmentsConstants
 import com.cassiolucianodasilva.teste_solutios.service.listener.APIListener
 import com.cassiolucianodasilva.teste_solutios.service.repository.local.SecurityPreferences
@@ -35,7 +35,7 @@ class StatmentViewModel(application: Application) : AndroidViewModel(application
         val values = HashMap<String, String>()
         values[StatmentsConstants.USER.USER_NAME] = name
         values[StatmentsConstants.USER.USER_CPF] = cpf.format("")
-        values[StatmentsConstants.USER.USER_BALANCE] = balance.replace('.', ',')
+        values[StatmentsConstants.USER.USER_BALANCE] = "R$ "+ balance.replace('.', ',')
 
         return values
     }

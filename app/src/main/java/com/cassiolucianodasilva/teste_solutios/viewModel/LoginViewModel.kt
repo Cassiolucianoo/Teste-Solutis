@@ -3,16 +3,20 @@ package com.cassiolucianodasilva.teste_solutios.viewModel
 import android.app.Application
 import android.util.Patterns
 import android.widget.Toast
+import androidx.biometric.FingerprintHelperFragment
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.cassiolucianodasilva.teste_solutios.R
 import com.cassiolucianodasilva.teste_solutios.model.LoginModel
-import com.cassiolucianodasilva.teste_solutios.service.PersonRepository
+import com.cassiolucianodasilva.teste_solutios.service.repository.PersonRepository
 import com.cassiolucianodasilva.teste_solutios.service.constants.StatmentsConstants
+import com.cassiolucianodasilva.teste_solutios.service.helper.FingerprintHelper
+import com.cassiolucianodasilva.teste_solutios.service.helper.FingerprintHelper.Companion.isAuthenticationAvailable
 import com.cassiolucianodasilva.teste_solutios.service.listener.APIListener
 import com.cassiolucianodasilva.teste_solutios.service.listener.ValidationListener
 import com.cassiolucianodasilva.teste_solutios.service.repository.local.SecurityPreferences
+import com.cassiolucianodasilva.teste_solutios.service.repository.remote.RetrofitClient
 
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
@@ -44,7 +48,6 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             val alphaNumeric = password.contains(Regex("[a-zA-Z0-9]"))
             if (!emailLogin or !specialCharacter or !alphaNumeric) {
 
-
             }
 
             mPersonRepository.login(user, password, object : APIListener<LoginModel> {
@@ -74,15 +77,6 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
 
     }
-
-    /**
-     * TODO
-     * Verifica se usuário está logado
-     */
-    fun verifyLoggedUser() {
-
-    }
-
 
     fun cacheLogin() {
         mLastLogin.value = mSecurityPreferences.get(StatmentsConstants.SHARED.USER_LOGIN)

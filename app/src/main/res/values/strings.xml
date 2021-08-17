@@ -13,7 +13,14 @@
     <string name="saldo_ex">R$ 1.999,00</string>
     <string name="erroatualizarextrato">Extrato não foi atualizado</string>
     <string name="errointernet">\"Verifique sua internet \"</string>
-    <string name="errologin">Falha no login</string>
+    <string name="errologin">Falha no login / verifique sua rede</string>
     <string name="invalid_password">"Senhas validas minimo 5 caracteres"</string>
     <string name="invalid_user">"Informe usuario de acesso"</string>
+
+
+
+    <string name="fp_titulo">Autenticação</string>
+    <string name="fp_subtitulo">Verificação biométrica</string>
+    <string name="fp_descricao">Use sua digital para fazer o login</string>
+    <string name="fp_cancelar">Agora não</string>
 </resources>

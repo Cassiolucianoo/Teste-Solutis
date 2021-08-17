@@ -1,13 +1,11 @@
 package com.cassiolucianodasilva.teste_solutios.view
 
 import android.app.AlertDialog
-import android.content.ContentValues.TAG
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,9 +15,6 @@ import com.cassiolucianodasilva.teste_solutios.service.constants.StatmentsConsta
 import com.cassiolucianodasilva.teste_solutios.view.adapter.StatmentAdapter
 import com.cassiolucianodasilva.teste_solutios.viewModel.StatmentViewModel
 import kotlinx.android.synthetic.main.header_list_card.*
-import android.content.DialogInterface
-
-
 
 
 class StartmentActivity : AppCompatActivity(), View.OnClickListener {
@@ -36,10 +31,12 @@ class StartmentActivity : AppCompatActivity(), View.OnClickListener {
         loadData()
         loadStatment()
 
+        //referenciando recyclerView
         val recycler = findViewById<RecyclerView>(R.id.recyler_statment)
+
+        // para que os elementos apareçam, é necessário configurar  um LayoutManager, portanto, crie um objeto do tipo
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = mAdapter
-
 
         logout.setOnClickListener(this)
 
@@ -54,6 +51,9 @@ class StartmentActivity : AppCompatActivity(), View.OnClickListener {
         valorConta.text = values[StatmentsConstants.USER.USER_BALANCE]
     }
 
+    /**
+     *Finalizar aplicação ao selecionar bt logout
+     */
     override fun onClick(v: View) {
         if (v.id == R.id.logout) {
             mViewModel.logout()
@@ -63,10 +63,9 @@ class StartmentActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-     fun onBackPresseds() {
-        Toast.makeText(applicationContext, "Alterar botão retornar", Toast.LENGTH_LONG).show()
-    }
-
+    /**
+     *Ao precionar o botão do dispositivo voltar e apresenta o alert
+     */
     override fun onBackPressed() {
        exit()
     }
@@ -76,7 +75,13 @@ class StartmentActivity : AppCompatActivity(), View.OnClickListener {
         mViewModel.loadStatment()
     }
 
-
+    /**
+     *
+     *
+     *
+     *
+     *
+     */
     private fun observe() {
         mViewModel.statment.observe(this, Observer {
             if (it.count() > 0) {
@@ -86,14 +91,16 @@ class StartmentActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    /**
+     * Função com dialog sair da aplicação
+     */
     private fun exit(){
 
         AlertDialog.Builder(this)
             //.setIcon(android.R.drawable.ic_dialog_alert)
             .setTitle("Sair da Conta")
             .setMessage("Deseja realmente sair ?")
-            .setPositiveButton("Sim",
-                DialogInterface.OnClickListener { dialog, which -> finish() })
+            .setPositiveButton("Sim", DialogInterface.OnClickListener { dialog, which -> finish() })
             .setNegativeButton("Não", null)
             .show()
 
